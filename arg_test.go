@@ -26,9 +26,9 @@ func (suite *AgTestSuite) TestEqual() {
 	t := suite.T()
 	db := suite.Db
 
-	eq := &Arg{Param: "name", Path: []string{"name"}, Func: Equal}
+	eq := &Arg{Param: "name", Path: []string{"name"}, Type: String, Func: Equal}
 	db = eq.Apply(db, &TestContext{
-		map[string][]interface{}{"name": {"testname1"}},
+		map[string][]string{"name": {"testname1"}},
 	})
 	db = db.Find(&TestModel{})
 
@@ -42,7 +42,7 @@ func (suite *AgTestSuite) TestLike() {
 
 	eq := &Arg{Param: "name", Path: []string{"name"}, Func: Like}
 	db = eq.Apply(db, &TestContext{
-		map[string][]interface{}{"name": {"testname1"}},
+		map[string][]string{"name": {"testname1"}},
 	})
 	db = db.Find(&TestModel{})
 
@@ -56,7 +56,7 @@ func (suite *AgTestSuite) TestLikeIgnoreCase() {
 
 	eq := &Arg{Param: "name", Path: []string{"name"}, Func: LikeIgnoreCase}
 	db = eq.Apply(db, &TestContext{
-		map[string][]interface{}{"name": {"testname1"}},
+		map[string][]string{"name": {"testname1"}},
 	})
 	db = db.Find(&TestModel{})
 

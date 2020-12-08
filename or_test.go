@@ -28,7 +28,7 @@ func (suite *OrTestSuite) TestSimpleOr() {
 	},
 	}
 	db = eq.Apply(db, &TestContext{
-		map[string][]interface{}{"name": {"testname1"}},
+		map[string][]string{"name": {"testname1"}},
 	})
 	db = db.Find(&TestModel{})
 
@@ -51,7 +51,7 @@ func (suite *OrTestSuite) TestAndOr() {
 
 	//db = db.Where("id = ?", 1).Where(db.Where("firstname = ?", "firstname").Or("lastname = ?", "lastname"))
 	db = eq.Apply(db, &TestContext{
-		map[string][]interface{}{"name": {"testname1"}},
+		map[string][]string{"name": {"testname1"}},
 	})
 	db = db.Find(&TestModel{})
 
@@ -76,7 +76,7 @@ func (suite *OrTestSuite) TestAndOrAnd() {
 
 	//db = db.Where("id = ?", 1).Where(db.Where("firstname = ?", "firstname").Or("lastname = ?", "lastname"))
 	db = eq.Apply(db, &TestContext{
-		map[string][]interface{}{"name": {"test"}, "id": {1}},
+		map[string][]string{"name": {"test"}, "id": {"1"}},
 	})
 	db = db.Find(&TestModel{})
 

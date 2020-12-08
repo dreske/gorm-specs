@@ -5,7 +5,7 @@ import (
 )
 
 type Context interface {
-	GetParameter(name string) ([]interface{}, bool)
+	GetParameter(name string) ([]string, bool)
 }
 
 type Spec interface {

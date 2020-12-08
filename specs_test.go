@@ -9,10 +9,10 @@ import (
 )
 
 type TestContext struct {
-	Params map[string][]interface{}
+	Params map[string][]string
 }
 
-func (t *TestContext) GetParameter(name string) ([]interface{}, bool) {
+func (t *TestContext) GetParameter(name string) ([]string, bool) {
 	values, ok := t.Params[name]
 	return values, ok
 }
